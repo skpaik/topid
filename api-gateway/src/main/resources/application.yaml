@@ -30,4 +30,4 @@ spring:
         - id: api-server
           uri: lb://api-server
           predicates:
-            - Path=/api/**
+            - Path=/api-server/**

@@ -26,10 +26,5 @@
       <option name="name" value="Netflix Candidates" />
       <option name="url" value="https://dbartifactory.jfrog.io/dbartifactory/all" />
     </remote-repository>
-    <remote-repository>
-      <option name="id" value="spring-milestones" />
-      <option name="name" value="Spring Milestones" />
-      <option name="url" value="https://dbartifactory.jfrog.io/dbartifactory/all" />
-    </remote-repository>
   </component>
 </project>
