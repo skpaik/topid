@@ -1,0 +1,141 @@
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    hostname: mongo
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - data:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    networks:
+      - spring
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    restart: always
+    ports:
+      - 8095:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+    depends_on:
+      - mongodb
+    networks:
+      - spring
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - 9411:9411
+    networks:
+      - spring
+
+  rabbitmq:
+    image: rabbitmq:3.9.11-management-alpine
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - spring
+
+  eureka-server:
+    image: koulombus/eureka-server:latest
+    container_name: eureka-server
+    ports:
+      - 8761:8761
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+
+  api-gateway:
+    image: koulombus/api-gateway:latest
+    container_name: api-gateway
+    ports:
+      - 8090:8090
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+      - eureka-server
+
+  customer:
+    image: koulombus/customer:latest
+    container_name: customer
+    ports:
+      - 8091:8091
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+      - eureka-server
+      - rabbitmq
+      - mongodb
+      - fraud
+
+  fraud:
+    image: koulombus/fraud:latest
+    container_name: fraud
+    ports:
+      - 8092:8092
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+      - eureka-server
+      - rabbitmq
+      - mongodb
+
+  notification:
+    image: koulombus/notification:latest
+    container_name: notification
+    ports:
+      - 8093:8093
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+      - eureka-server
+      - rabbitmq
+      - mongodb
+
+  volumes:
+    postgres:
+    pgadmin:
+    data: {}
+
+  networks:
+    postgres:
+      driver: bridge
+    spring:
+      driver: bridge
+
+
+
+
+
+
+
+
+
+
+
+
