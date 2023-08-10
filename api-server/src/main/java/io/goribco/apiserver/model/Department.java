@@ -1,4 +1,4 @@
-package com.dailycodebuffer.departmentservice.model;
+package io.goribco.apiserver.model;
 
 import java.util.ArrayList;
 import java.util.List;

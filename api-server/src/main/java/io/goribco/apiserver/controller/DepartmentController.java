@@ -1,8 +1,8 @@
-package com.dailycodebuffer.departmentservice.controller;
+package io.goribco.apiserver.controller;
 
-import com.dailycodebuffer.departmentservice.client.EmployeeClient;
-import com.dailycodebuffer.departmentservice.model.Department;
-import com.dailycodebuffer.departmentservice.repository.DepartmentRepository;
+import io.goribco.apiserver.client.EmployeeClient;
+import io.goribco.apiserver.model.Department;
+import io.goribco.apiserver.repository.DepartmentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

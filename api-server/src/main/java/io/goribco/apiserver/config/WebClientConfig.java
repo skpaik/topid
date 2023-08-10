@@ -1,6 +1,6 @@
-package com.dailycodebuffer.departmentservice.config;
+package io.goribco.apiserver.config;
 
-import com.dailycodebuffer.departmentservice.client.EmployeeClient;
+import io.goribco.apiserver.client.EmployeeClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.reactive.LoadBalancedExchangeFilterFunction;
 import org.springframework.context.annotation.Bean;

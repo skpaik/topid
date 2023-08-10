@@ -1,7 +1,6 @@
-package com.dailycodebuffer.departmentservice.client;
+package io.goribco.apiserver.client;
 
-import com.dailycodebuffer.departmentservice.model.Employee;
-import org.springframework.web.bind.annotation.GetMapping;
+import io.goribco.apiserver.model.Employee;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;

@@ -1,4 +1,4 @@
-package com.dailycodebuffer.departmentservice;
+package io.goribco.apiserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

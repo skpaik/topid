@@ -1,6 +1,6 @@
-package com.dailycodebuffer.departmentservice.repository;
+package io.goribco.apiserver.repository;
 
-import com.dailycodebuffer.departmentservice.model.Department;
+import io.goribco.apiserver.model.Department;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

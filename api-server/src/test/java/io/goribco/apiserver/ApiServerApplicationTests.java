@@ -1,10 +1,10 @@
-package com.dailycodebuffer.departmentservice;
+package io.goribco.apiserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DepartmentServiceApplicationTests {
+class ApiServerApplicationTests {
 
 	@Test
 	void contextLoads() {
