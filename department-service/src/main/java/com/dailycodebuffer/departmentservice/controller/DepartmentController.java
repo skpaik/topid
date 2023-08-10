@@ -34,6 +34,10 @@ public class DepartmentController {
         LOGGER.info("Department find");
         return repository.findAll();
     }
+    @GetMapping("/detail")
+    public String detail() {
+        return "Hello 420 Top 10";
+    }
 
     @GetMapping("/{id}")
     public Department findById(@PathVariable Long id) {
