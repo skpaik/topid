@@ -31,3 +31,15 @@ spring:
           uri: lb://api-server
           predicates:
             - Path=/api-server/**
+        - id: api-server
+          uri: lb://api-server
+          predicates:
+            - Path=/api/v1/**
+        - id: api-server
+          uri: lb://api-server
+          predicates:
+            - Path=/apiserver/**
+        - id: be-service
+          uri: lb://be-service
+          predicates:
+            - Path=/be/**
