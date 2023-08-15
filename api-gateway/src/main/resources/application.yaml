@@ -19,7 +19,14 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: api-service
+        - id: api-service-1
           uri: lb://api-service
           predicates:
             - Path=/api/**
+        - id: api-service-2
+          uri: lb://api-service
+          predicates:
+            - Path=/actuator/**
+            - Path=/v3/api-docs
+            - Path=/v3/api-docs/**
+            - Path=/swagger-ui.html
