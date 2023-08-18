@@ -4,7 +4,9 @@
     <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/api-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/background-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bg-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/email-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-registry/src/main/java" charset="UTF-8" />
   </component>
 </project>

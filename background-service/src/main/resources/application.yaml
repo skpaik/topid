@@ -1,0 +1,71 @@
+eureka:
+  client:
+    register:
+      with-eureka: true
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: background-service
+  config:
+    import: "optional:configserver:http://localhost:8088/"
+  cloud:
+    compatibility-verifier:
+      enabled: false
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet=DEBUG:
+        security: DEBUG
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        #        include: "*"
+        include: "health, info, logfile, sessions"
+        exclude: "env,beans"
+    #      base-path: /actuator
+    cors:
+      allowed-origins: "https://localhost:3000"
+      allowed-methods: "GET,POST"
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      background-service:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+  retry:
+    instances:
+      background-service:
+        #        registerHealthIndicator: true
+        #        maxRetryAttempts: 5
+        waitDuration: 10s
+  ratelimiter:
+    instances:
+      background-service:
+        registerHealthIndicator: false
+        limitForPeriod: 10
+        limitRefreshPeriod: 10s
+        timeoutDuration: 3s

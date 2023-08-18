@@ -30,3 +30,15 @@ spring:
             - Path=/v3/api-docs
             - Path=/v3/api-docs/**
             - Path=/swagger-ui.html
+        - id: background-service-1
+          uri: lb://background-service
+          predicates:
+            - Path=/background-service/**
+        - id: bg-service-1
+          uri: lb://bg-service
+          predicates:
+            - Path=/bg-service/**
+        - id: email-service-1
+          uri: lb://email-service
+          predicates:
+            - Path=/email-service/**
