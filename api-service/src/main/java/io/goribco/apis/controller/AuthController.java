@@ -2,8 +2,6 @@ package io.goribco.apis.controller;
 
 import io.goribco.apis.configs.RoutesConfig;
 import io.goribco.apis.helper.AuthHelper;
-import io.goribco.apis.helper.emails.EmailEvent;
-import io.goribco.apis.helper.emails.EmailHelper;
 import io.goribco.apis.model.authmodels.login.AuthRes;
 import io.goribco.apis.model.authmodels.login.AuthenticateReq;
 import io.goribco.apis.model.authmodels.login.LoginReq;
@@ -16,8 +14,6 @@ import io.goribco.apis.model.exceptions.ModelDataExistsException;
 import io.goribco.apis.model.exceptions.UserNotFoundException;
 import io.goribco.apis.service.AuthService;
 import io.goribco.apis.utils.AuthUtil;
-//import io.goribco.apis.webclient.BeServiceExchangeClient;
-//import io.goribco.apis.webclient.EmployeeClient;
 import io.goribco.core.request.QueryReq;
 import io.goribco.core.response.AppHttpStatus;
 import io.goribco.core.response.BaseMsg;
@@ -43,10 +39,7 @@ public class AuthController {
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
     @Autowired
     private AuthService authService;
-//    @Autowired
-//    private BeServiceExchangeClient beServiceExchangeClient;
-//    @Autowired
-//    private EmployeeClient employeeClient;
+
     @PostMapping(value = RoutesConfig.Auth.register)
     public EntityModel<?> registerUser(@RequestBody @Valid UserReq userReq) throws Exception {
         LOGGER.info("registerUser Request with {}", userReq);
@@ -63,7 +56,7 @@ public class AuthController {
 
             userReq = authHelper.optimizeRegisterUserReq(userReq);
 
-            new EmailHelper().sendEmailAsync(userReq.getEmail(), EmailEvent.SEND);
+            //new EmailHelper().sendEmailAsync(userReq.getEmail(), EmailEvent.SEND);
 
             return new ResHelper<UserRes, UserReq>().makeRestRes4(
                     userRes,
@@ -71,8 +64,6 @@ public class AuthController {
                     new BaseMsg("User register successfully", AppHttpStatus.OK));
         } catch (DuplicateKeyException exception) {
             throw new ModelDataExistsException("Username " + userReq.getUsername() + " already exists!");
-        } catch (InterruptedException exception) {
-            throw exception;
         } catch (Exception exception) {
             throw new Exception("Something went wrong!");
         }

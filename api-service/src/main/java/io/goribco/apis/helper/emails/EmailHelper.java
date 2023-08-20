@@ -4,7 +4,7 @@ import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import io.goribco.apis.model.authmodels.users.UserData;
-import io.goribco.apis.webclient.EmployeeClient;
+import io.goribco.apis.webclient.EmailServiceClient;
 import jakarta.validation.constraints.Email;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,14 +28,14 @@ public class EmailHelper {
 
 
     @Autowired
-    private EmployeeClient employeeClient;
+    private EmailServiceClient emailServiceClient;
 
     //    public EmailHelper(BeServiceExchangeClient beServiceExchangeClient) {
 //        this.beServiceExchangeClient = beServiceExchangeClient;
 //        this.restTemplate = new RestTemplate();
 //    }
-    public EmailHelper(EmployeeClient employeeClient) {
-        this.employeeClient = employeeClient;
+    public EmailHelper(EmailServiceClient emailServiceClient) {
+        this.emailServiceClient = emailServiceClient;
         this.restTemplate = new RestTemplate();
     }
 
@@ -72,7 +72,7 @@ public class EmailHelper {
     @Async
     public CompletableFuture<List<String>> processAndSendEmail(String email, int emailEvent) throws InterruptedException {
         //  List<String> emailSend2 = this.beServiceExchangeClient.emailSend(email, emailEvent);
-        List<String> emailSend = employeeClient.emailSend(email, emailEvent);
+        List<String> emailSend = emailServiceClient.emailSend(email, emailEvent);
 
         /*
         logger.info("Looking up " + email);

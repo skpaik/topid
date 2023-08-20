@@ -1,7 +1,6 @@
 package io.goribco.apis.config;
 
-import io.goribco.apis.webclient.BeServiceExchangeClient;
-import io.goribco.apis.webclient.EmployeeClient;
+import io.goribco.apis.webclient.EmailServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.reactive.LoadBalancedExchangeFilterFunction;
 import org.springframework.context.annotation.Bean;
@@ -17,28 +16,7 @@ public class WebClientConfig {
     private LoadBalancedExchangeFilterFunction filterFunction;
 
     @Bean
-    public WebClient beServiceWebClient() {
-        return WebClient.builder()
-                .baseUrl("http://bg-service")
-                .filter(filterFunction)
-                .build();
-    }
-
-    @Bean
-    public BeServiceExchangeClient beServiceExchangeClient() {
-        HttpServiceProxyFactory httpServiceProxyFactory = HttpServiceProxyFactory
-                .builder(WebClientAdapter.forClient(beServiceWebClient()))
-                .build();
-
-        BeServiceExchangeClient beServiceExchangeClient =
-                httpServiceProxyFactory.createClient(BeServiceExchangeClient.class);
-
-        return beServiceExchangeClient;
-    }
-
-
-    @Bean
-    public WebClient employeeWebClient() {
+    public WebClient webClient() {
         return WebClient.builder()
                 .baseUrl("http://email-service")
                 .filter(filterFunction)
@@ -46,11 +24,12 @@ public class WebClientConfig {
     }
 
     @Bean
-    public EmployeeClient employeeClient() {
+    public EmailServiceClient emailServiceClient() {
         HttpServiceProxyFactory httpServiceProxyFactory
                 = HttpServiceProxyFactory
-                .builder(WebClientAdapter.forClient(employeeWebClient()))
+                .builder(WebClientAdapter.forClient(webClient()))
                 .build();
-        return httpServiceProxyFactory.createClient(EmployeeClient.class);
+
+        return httpServiceProxyFactory.createClient(EmailServiceClient.class);
     }
 }
