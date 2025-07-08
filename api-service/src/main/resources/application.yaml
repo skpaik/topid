@@ -1,0 +1,100 @@
+eureka:
+  client:
+    register:
+      with-eureka: true
+  instance:
+    prefer-ip-address: true
+
+spring:
+  main:
+    allow-bean-definition-overriding=true:
+  application:
+    name: api-service
+  config:
+    import: "optional:configserver:http://localhost:8088"
+  cloud:
+    compatibility-verifier:
+      enabled: false
+#  cloud:
+#    discovery:
+#      enabled: true
+#  thymeleaf:
+#    check-template-location: false
+#  main:
+#    web-application-type: none
+#    allow-bean-definition-overriding: true
+#    web-environment: false
+#  devtools:
+#    restart:
+#      additional-paths: .
+  graphql:
+    cors:
+      allowed-headers: '# Comma-separated list of headers to allow in a request. ''*''
+        allows all headers.'
+      allowed-origin-patterns: '# Comma-separated list of origin patterns like ''https://*.example.com''
+        to allow.'
+      allowed-methods: 'GET,POST # Comma-separated list of methods to allow. ''*''
+        allows all methods.'
+      exposed-headers: '# Comma-separated list of headers to include in a response.'
+      allowed-origins: 'https://example.org # Comma-separated list of origins to allow.
+        ''*'' allows all origins.'
+    graphiql:
+      enabled: 'true'
+      path: /graphiql
+  data:
+    mongodb:
+      host: localhost
+      authentication-database: admin
+      username: admin
+      port: 27017
+      auto-index-creation: true
+      database: topprofile_6
+      password: admin123
+  jackson:
+    default-property-inclusion: non_null
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet=DEBUG:
+        security: DEBUG
+#server:
+#  port: 8080
+graphql:
+  servlet:
+    cors:
+      allowed-origins: '"*"'
+app:
+  client:
+    url: http://localhost:3000/*
+  security:
+    cors:
+      origin: http://localhost:3000
+management:
+  endpoint:
+    health:
+      show-details: always
+  #      show-details: when_authorized
+
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        #        include: "*"
+        include: "health, info, logfile, sessions"
+        exclude: "env,beans"
+    #      base-path: /actuator
+    cors:
+      allowed-origins: "https://localhost:3000"
+      allowed-methods: "GET,POST"

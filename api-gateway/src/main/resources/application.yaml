@@ -2,9 +2,13 @@ server:
   port: 8060
 
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
 
 management:
   tracing:
@@ -19,27 +23,26 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: employee-service
-          uri: lb://employee-service
+        - id: api-service-1
+          uri: lb://api-service
           predicates:
-            - Path=/employee/**
-        - id: department-service
-          uri: lb://department-service
+            - Path=/api/**
+        - id: api-service-2
+          uri: lb://api-service
           predicates:
-            - Path=/department/**
-        - id: api-server
-          uri: lb://api-server
+            - Path=/actuator/**
+            - Path=/v3/api-docs
+            - Path=/v3/api-docs/**
+            - Path=/swagger-ui.html
+        - id: background-service-1
+          uri: lb://background-service
           predicates:
-            - Path=/api-server/**
-        - id: api-server
-          uri: lb://api-server
+            - Path=/background-service/**
+        - id: bg-service-1
+          uri: lb://bg-service
           predicates:
-            - Path=/api/v1/**
-        - id: api-server
-          uri: lb://api-server
+            - Path=/bg-service/**
+        - id: email-service-1
+          uri: lb://email-service
           predicates:
-            - Path=/apiserver/**
-        - id: be-service
-          uri: lb://be-service
-          predicates:
-            - Path=/be/**
+            - Path=/email-service/**

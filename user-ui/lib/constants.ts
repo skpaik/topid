@@ -1,0 +1,2 @@
+export const HYGRAPH_PERMANENTAUTH_TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6IlJPTEVfVVNFUiIsImp0aSI6ImU1Yzk3N2VkNWJlNDRiMDc4NDQ4MjIwN2E4ZTM5N2ZjIiwiaWF0IjoxNjc4ODI5NjgxLCJzdWIiOiJ1c2VyMTAyIiwiZXhwIjoxNjc4ODMzMjgxfQ.ciZdTVQLxazXPQ2vILPxgkNvw5pfFKT60bm98fgsouLY9A0QbXGe2IbOBFypHi0xntbD6GrlBtGiaiOyp9NHLA";
+export const HYGRAPH_URL = "http://localhost:8080/graphql";

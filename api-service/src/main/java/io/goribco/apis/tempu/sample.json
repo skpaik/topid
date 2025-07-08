@@ -1,0 +1,173 @@
+[
+  {
+    "username": "userName1",
+    "email": "email1@gmail.com",
+    "phone": "+8801719100071",
+    "businessTitle": "businessTitle1",
+    "firstName": "First Name1",
+    "middleName": "Middle Name1",
+    "lastName": "Last Name1",
+    "id": "6453f8746103fb7448689259",
+    "roles": [
+      {
+        "id": "6453f8746103fb7448689257",
+        "name": "USER",
+        "description": null
+      }
+    ],
+    "uid": "0vn4ZV0o",
+    "fullName": "First Name1 Middle Name1 Last Name1"
+  },
+  {
+    "username": "userName2",
+    "email": "email2@gmail.com",
+    "phone": "+8801719100072",
+    "businessTitle": "businessTitle2",
+    "firstName": "First Name2",
+    "middleName": "Middle Name2",
+    "lastName": "Last Name2",
+    "id": "6453f8746103fb744868925a",
+    "roles": [
+      {
+        "id": "6453f8746103fb7448689257",
+        "name": "USER",
+        "description": null
+      }
+    ],
+    "uid": "1rwlFhQE",
+    "fullName": "First Name2 Middle Name2 Last Name2"
+  },
+  {
+    "username": "user100OB",
+    "email": "user100@gmail.com",
+    "phone": "+8801719100070",
+    "businessTitle": null,
+    "firstName": "User",
+    "middleName": "Kumar",
+    "lastName": "Paik",
+    "id": "6453f8756103fb744868925b",
+    "roles": [
+      {
+        "id": "6453f8746103fb7448689256",
+        "name": "ADMIN",
+        "description": null
+      }
+    ],
+    "uid": "kKnOPp71",
+    "fullName": "User Kumar Paik"
+  },
+  {
+    "username": "user100",
+    "email": "user100@gmail.com",
+    "phone": "+8801719100070",
+    "businessTitle": null,
+    "firstName": "User",
+    "middleName": "Kumar",
+    "lastName": "Paik",
+    "id": "6453f8756103fb744868925c",
+    "roles": [
+      {
+        "id": "6453f8746103fb7448689256",
+        "name": "ADMIN",
+        "description": null
+      }
+    ],
+    "uid": "eqUsjyEj",
+    "fullName": "User Kumar Paik"
+  },
+  {
+    "username": "user1009H",
+    "email": "user100@gmail.com",
+    "phone": "+8801719100070",
+    "businessTitle": null,
+    "firstName": "User",
+    "middleName": "Kumar",
+    "lastName": "Paik",
+    "id": "6453f90fcb7e7e5f9ae86ffa",
+    "roles": [
+      {
+        "id": "6453f8746103fb7448689256",
+        "name": "ADMIN",
+        "description": null
+      }
+    ],
+    "uid": "peW9YUWQ",
+    "fullName": "User Kumar Paik"
+  },
+  {
+    "username": null,
+    "email": "user100@gmail.com",
+    "phone": "+8801719100070",
+    "businessTitle": null,
+    "firstName": "User",
+    "middleName": "Kumar",
+    "lastName": "Paik",
+    "id": "6453f92ca18a761b0c80c636",
+    "roles": [
+      {
+        "id": "6453f8746103fb7448689256",
+        "name": "ADMIN",
+        "description": null
+      }
+    ],
+    "uid": "1I2x_KCL",
+    "fullName": "User Kumar Paik"
+  },
+  {
+    "username": "user109",
+    "email": "user100@gmail.com",
+    "phone": "+8801719100070",
+    "businessTitle": null,
+    "firstName": "User",
+    "middleName": "Kumar",
+    "lastName": "Paik",
+    "id": "6453f94fa18a761b0c80c638",
+    "roles": [
+      {
+        "id": "6453f8746103fb7448689256",
+        "name": "ADMIN",
+        "description": null
+      }
+    ],
+    "uid": "n_oN3Qy9",
+    "fullName": "User Kumar Paik"
+  },
+  {
+    "username": "admin101",
+    "email": "admin100@gmail.com",
+    "phone": "+8801719100071",
+    "businessTitle": null,
+    "firstName": "Admin",
+    "middleName": "Kumar",
+    "lastName": "Paik",
+    "id": "6453ff56e53c3557a24bc077",
+    "roles": [
+      {
+        "id": "6453f8746103fb7448689256",
+        "name": "ADMIN",
+        "description": null
+      }
+    ],
+    "uid": "uFSXG9qK",
+    "fullName": "Admin Kumar Paik"
+  },
+  {
+    "username": "user100sy",
+    "email": "user100@gmail.com",
+    "phone": "+8801719100070",
+    "businessTitle": null,
+    "firstName": "User",
+    "middleName": "Kumar",
+    "lastName": "Paik",
+    "id": "64540db28c195660d8c766dd",
+    "roles": [
+      {
+        "id": "6453f8746103fb7448689257",
+        "name": "USER",
+        "description": null
+      }
+    ],
+    "uid": "8dUPynDf",
+    "fullName": "User Kumar Paik"
+  }
+]

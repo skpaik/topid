@@ -1,0 +1,8 @@
+{
+  "provider": 'github',
+  "type": 'oauth',
+  "providerAccountId": '620762',
+  "access_token": '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',
+  token_type: 'bearer',
+  scope: 'read:user,user:email'
+}

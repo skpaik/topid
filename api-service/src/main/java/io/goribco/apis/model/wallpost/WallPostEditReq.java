@@ -1,0 +1,27 @@
+package io.goribco.apis.model.wallpost;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.goribco.core.response.BaseReq;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class WallPostEditReq extends BaseReq {
+    private String id;
+    @NotNull
+    private String location;
+    @NotNull
+    private String msgBody;
+    @NotNull
+    private boolean postAnonymously;// Wall Poster will stay Anonymous. Decide by Poser. Default: true
+    //private boolean canBePublic;// Wall Poster will decide Wall owner can make it public or not
+    private byte visibility;//PostAuthority// Current state of Visibility. Default: POST_OWNER
+}

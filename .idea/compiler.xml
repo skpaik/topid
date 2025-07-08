@@ -2,26 +2,29 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="api-gateway" />
+        <module name="api-service" />
         <module name="config-server" />
-        <module name="api-server" />
-        <module name="department-service" />
+        <module name="background-service" />
+        <module name="bg-service" />
+        <module name="email-service" />
+        <module name="api-gateway" />
         <module name="service-registry" />
-        <module name="employee-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
-      <module name="api-server" options="-parameters" />
+      <module name="api-service" options="-parameters" />
+      <module name="background-service" options="-parameters" />
+      <module name="bg-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
-      <module name="department-service" options="-parameters" />
-      <module name="employee-service" options="-parameters" />
+      <module name="email-service" options="-parameters" />
       <module name="service-registry" options="-parameters" />
     </option>
   </component>

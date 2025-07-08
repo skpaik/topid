@@ -1,0 +1,63 @@
+eureka:
+  client:
+    register:
+      with-eureka: true
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: email-service
+  config:
+    import: "optional:configserver:http://localhost:8088"
+  cloud:
+    compatibility-verifier:
+      enabled: false
+  jackson:
+    default-property-inclusion: non_null
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet=DEBUG:
+        security: DEBUG
+#server:
+#  port: 8080
+graphql:
+  servlet:
+    cors:
+      allowed-origins: '"*"'
+app:
+  client:
+    url: http://localhost:3000/*
+  security:
+    cors:
+      origin: http://localhost:3000
+management:
+  endpoint:
+    health:
+      show-details: always
+  #      show-details: when_authorized
+
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        #        include: "*"
+        include: "health, info, logfile, sessions"
+        exclude: "env,beans"
+    #      base-path: /actuator
+    cors:
+      allowed-origins: "https://localhost:3000"
+      allowed-methods: "GET,POST"
